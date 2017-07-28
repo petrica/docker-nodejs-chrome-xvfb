@@ -69,7 +69,6 @@ RUN chmod u+rx,g+rx,o+rx,a-w /opt/docker-entrypoint.sh && \
     chown -R worker:worker /data/ && \
     chmod -R u+rwx,g+rwx,o-rwx /work-private/
 
-
 #
 # DBUS
 #
