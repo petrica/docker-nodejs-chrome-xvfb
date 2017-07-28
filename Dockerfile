@@ -23,7 +23,7 @@ RUN apt-get -qqy update \
 #
 # NODEJS
 #
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
     apt-get update -qqy && apt-get -qqy install -y nodejs && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
@@ -54,6 +54,7 @@ RUN chmod u+rx,g+rx,o+rx,a-w /opt/docker-entrypoint.sh && \
     addgroup --gid 10777 worker && \
     adduser --gecos "" --disabled-login --disabled-password --gid 10777 --uid 10777 worker && \
     mkdir /work/ && \
+    mkdir /pieline/ && \
     mkdir /work-private/ && \
     mkdir /work-bin/ && \
     mkdir /data/ && \
@@ -61,6 +62,7 @@ RUN chmod u+rx,g+rx,o+rx,a-w /opt/docker-entrypoint.sh && \
     chown -R root:root /tmp/.X11-unix && \
     chmod 1777 /tmp/.X11-unix && \
     chown -R worker:worker /work/ && \
+    chown -R worker:worker /pieline/ && \
     chmod -R u+rwx,g+rwx,o-rwx /work/ && \
     chown -R worker:worker /work-private/ && \
     chown -R worker:worker /work-bin/ && \
@@ -76,5 +78,11 @@ RUN mkdir /var/run/dbus/ && \
     chown -R worker:worker /var/run/dbus/
 
 
+#
+# RUN
+#
+USER worker
+
+WORKDIR /pipeline
 ENTRYPOINT ["/opt/docker-entrypoint.sh"]
 CMD ["yarn", "--version"]
