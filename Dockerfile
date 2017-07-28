@@ -76,15 +76,5 @@ RUN mkdir /var/run/dbus/ && \
     chown -R worker:worker /var/run/dbus/
 
 
-#
-# RUN
-#
-USER worker
-
-WORKDIR /work/
-VOLUME ["/work"]
-VOLUME ["/work-private"]
-VOLUME ["/work-bin"]
-VOLUME ["/data"]
 ENTRYPOINT ["/opt/docker-entrypoint.sh"]
 CMD ["yarn", "--version"]
