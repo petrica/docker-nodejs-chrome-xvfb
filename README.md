@@ -9,8 +9,8 @@ It provides:
 | tool | version |
 |------|---------|
 | yarn | 0.27.5 |
-| node.js | 8.1.3 |
-| npm | 5.0.3 |
+| node.js | 6.11.1 |
+| npm | 3.10.10 |
 | google-chrome-stable | 59 |
 | Xvfb | apt-get |
 | git | apt-get |
