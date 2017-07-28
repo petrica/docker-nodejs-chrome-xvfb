@@ -54,7 +54,7 @@ RUN chmod u+rx,g+rx,o+rx,a-w /opt/docker-entrypoint.sh && \
     addgroup --gid 10777 worker && \
     adduser --gecos "" --disabled-login --disabled-password --gid 10777 --uid 10777 worker && \
     mkdir /work/ && \
-    mkdir /pieline/ && \
+    mkdir /pipeline/ && \
     mkdir /work-private/ && \
     mkdir /work-bin/ && \
     mkdir /data/ && \
