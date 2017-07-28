@@ -62,7 +62,7 @@ RUN chmod u+rx,g+rx,o+rx,a-w /opt/docker-entrypoint.sh && \
     chown -R root:root /tmp/.X11-unix && \
     chmod 1777 /tmp/.X11-unix && \
     chown -R worker:worker /work/ && \
-    chown -R worker:worker /pieline/ && \
+    chown -R worker:worker /pipeline/ && \
     chmod -R u+rwx,g+rwx,o-rwx /work/ && \
     chown -R worker:worker /work-private/ && \
     chown -R worker:worker /work-bin/ && \
