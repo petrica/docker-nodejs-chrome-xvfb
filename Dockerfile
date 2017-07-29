@@ -54,7 +54,6 @@ RUN chmod u+rx,g+rx,o+rx,a-w /opt/docker-entrypoint.sh && \
     addgroup --gid 10777 worker && \
     adduser --gecos "" --disabled-login --disabled-password --gid 10777 --uid 10777 worker && \
     mkdir /work/ && \
-    mkdir /pipeline/ && \
     mkdir /work-private/ && \
     mkdir /work-bin/ && \
     mkdir /data/ && \
@@ -66,8 +65,6 @@ RUN chmod u+rx,g+rx,o+rx,a-w /opt/docker-entrypoint.sh && \
     chown -R worker:worker /work-private/ && \
     chown -R worker:worker /work-bin/ && \
     chown -R worker:worker /data/ && \
-    chown -R worker:worker /pipeline/ && \
-    chmod -R u+rwx,g+rwx,o-rwx /pipeline/ && \
     chmod -R u+rwx,g+rwx,o-rwx /work-private/
 
 #
@@ -77,11 +74,6 @@ COPY dbus-system.conf /work-bin/dbus-system.conf
 RUN mkdir /var/run/dbus/ && \
     chown -R worker:worker /var/run/dbus/
 
-
-#
-# RUN
-#
-USER worker
 
 WORKDIR /pipeline
 ENTRYPOINT ["/opt/docker-entrypoint.sh"]
